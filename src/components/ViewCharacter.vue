@@ -14,7 +14,13 @@
         <p><span class="text-lime-400">Gender:</span> {{ character.gender }}</p>
         <p><span class="text-lime-400">Origin:</span> {{ character.origin?.name }}</p>
         <p><span class="text-lime-400">Location:</span> {{ character.location?.name }}</p>
-        <p><span class="text-lime-400">Episode:</span> {{ character.episode }}</p>
+        <p><span class="text-lime-400">Episode:</span></p>
+          <ol class="list-disc list-inside text-sm">
+            <li v-for="episode in character.episode" :key="episode">
+              {{ episode }}
+            </li>
+          </ol>
+        
 
         <RouterLink to="/">
           <button class="mt-4 bg-lime-400 text-violet-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 hover:bg-violet-800 hover:text-lime-400 
