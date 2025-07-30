@@ -7,18 +7,36 @@
         >
             <Card :character="character" />
         </div>
+        <div>
+            <Pagination :pagination="pagination" @prevPage="changePage(false)" @nextPage="changePage(true)" />
+        </div>
     </div>
 </template>
 
 <script setup>
 import {ref, onMounted} from 'vue';
 import Card from './Card.vue';
-const characters = ref([]);
+import Pagination from './Pagination.vue';
 
+const characters = ref([]);
+const pagination = ref();
+const page = ref(1);
 
 onMounted(async () => {
-    const response = await fetch('https://rickandmortyapi.com/api/character');
+    fetchCharacters();
+});
+
+async function fetchCharacters(pageToGo){
+    const response = await fetch('https://rickandmortyapi.com/api/character?page=' + (pageToGo ? pageToGo : page.value) );
     const data = await response.json();
     characters.value = data.results;
-});
+    pagination.value = data.info;
+}
+
+function changePage(isForward)
+{
+    isForward ? page.value++ : page.value--;
+
+    fetchCharacters(page.value);
+}
 </script>
