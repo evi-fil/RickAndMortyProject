@@ -11,8 +11,8 @@
             <h2 class="text-lime-300 font-bold text-lg"> {{ character.name }}</h2>
             <p><span class="text-lime-200">Status:</span> {{ character.status }}</p>
             <p><span class="text-lime-200">Species:</span> {{ character.species }}</p>
-            <RouterLink :to="'/character/' + character.id">  
-                <button class="mt-4 bg-lime-400 text-violet-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 hover:bg-violet-800 hover:text-lime-400 
+            <RouterLink :to="{ path: '/character/' + character.id, query: { page: currentPage } }">  
+                <button class="mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 hover:bg-fuchsia-800 hover:text-lime-400 
                font-semibold py-2 px-4 rounded transition-colors duration-100 cursor-pointer">Show More</button>
             </RouterLink>
         </div>
@@ -21,6 +21,7 @@
 
 <script setup>
 const props = defineProps({
-    character: Object
+    character: Object,
+    currentPage: Number,
 });
 </script>

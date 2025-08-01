@@ -5,9 +5,9 @@
             :key="character.id"
             class="bg-gradient-to-bl from-violet-900 to-fuchsia-800 text-violet-200 p-6 rounded-xl shadow-lg w-72 hover:ring hover:ring-lime-500 hover:shadow-lime-500 hover:scale-110 transition-transform duration-200"
         >
-            <Card :character="character" />
+            <Card :character="character" :currentPage="page"/>
         </div>
-        <div>
+        <div class="col-span-4 w-full flex justify-center">
             <Pagination :pagination="pagination" @prevPage="changePage(false)" @nextPage="changePage(true)" />
         </div>
     </div>
@@ -17,17 +17,21 @@
 import {ref, onMounted} from 'vue';
 import Card from './Card.vue';
 import Pagination from './Pagination.vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const characters = ref([]);
 const pagination = ref();
-const page = ref(1);
+const route = useRoute();
+const router = useRouter();
+const page = ref(Number(route.query.page) || 1);
 
 onMounted(async () => {
-    fetchCharacters();
+    fetchCharacters(page.value);
 });
 
 async function fetchCharacters(pageToGo){
-    const response = await fetch('https://rickandmortyapi.com/api/character?page=' + (pageToGo ? pageToGo : page.value) );
+    const currentPage = pageToGo || 1;
+    const response = await fetch('https://rickandmortyapi.com/api/character?page=' + currentPage );
     const data = await response.json();
     characters.value = data.results;
     pagination.value = data.info;
@@ -35,8 +39,15 @@ async function fetchCharacters(pageToGo){
 
 function changePage(isForward)
 {
-    isForward ? page.value++ : page.value--;
+    if (isForward) {
+        page.value++;
+    }
+    else if(page.value > 1) {
+        page.value--;
+    }
 
     fetchCharacters(page.value);
+    
+    router.push({ path: '/', query: { page: page.value } });
 }
 </script>
