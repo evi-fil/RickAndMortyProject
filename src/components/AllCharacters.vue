@@ -17,13 +17,13 @@
 import {ref, onMounted} from 'vue';
 import Card from './Card.vue';
 import Pagination from './Pagination.vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { usePageFromQuery } from '@/composables/pageFromQuery';
 
 const characters = ref([]);
 const pagination = ref();
-const route = useRoute();
 const router = useRouter();
-const page = ref(Number(route.query.page) || 1);
+const page = usePageFromQuery();
 
 onMounted(async () => {
     fetchCharacters(page.value);
@@ -37,17 +37,18 @@ async function fetchCharacters(pageToGo){
     pagination.value = data.info;
 }
 
-function changePage(isForward)
-{
+function changePage(isForward){
+    let newPage = page.value;
+
     if (isForward) {
-        page.value++;
+        newPage++;
     }
-    else if(page.value > 1) {
-        page.value--;
+    else if(newPage > 1) {
+        newPage--;
     }
 
-    fetchCharacters(page.value);
+    fetchCharacters(newPage);
     
-    router.push({ path: '/', query: { page: page.value } });
+    router.push({ path: '/', query: { page: newPage } });
 }
 </script>
