@@ -1,10 +1,10 @@
 <template>
   <div class="min-h-screen px-6 py-16">
     <div class="pl-122 pb-8">
-      <RouterLink :to="{ path: '/', query: { page: pageFromQuery } }">
+      <RouterLink :to="{ path: '/all-characters', query: { page: pageFromQuery } }">
         <button
           class="group mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 hover:bg-fuchsia-800 hover:text-lime-400 
-          font-semibold text-3xl py-1 px-6 rounded transition-colors duration-100 cursor-pointer">
+          font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-100 cursor-pointer">
           <svg
               class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
               xmlns="http://www.w3.org/2000/svg"
@@ -16,20 +16,45 @@
       </RouterLink>
     </div>
 
-    <div class="bg-gradient-to-bl from-violet-900 to-fuchsia-800 text-violet-200 rounded-xl shadow-2xl p-8 flex flex-col md:flex-row gap-8 max-w-4xl w-full mx-auto">
+    <div class="bg-gradient-to-r from-fuchsia-800 from-10% to-violet-900 to-100% text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-4xl w-full mx-auto">
       <img
         :src="character.image"
         alt="Character Avatar"
         class="rounded-xl shadow-lg w-90 h-90 object-cover mx-auto md:mx-0"
       />
-      <div class="flex-1 space-y-3">
-        <h1 class="text-3xl font-bold text-lime-300">{{ character.name }}</h1>
-        <p><span class="text-lime-400">Status:</span> {{ character.status }}</p>
-        <p><span class="text-lime-400">Species:</span> {{ character.species }}</p>
-        <p><span class="text-lime-400">Type:</span> {{ character.type || 'N/A' }}</p>
-        <p><span class="text-lime-400">Gender:</span> {{ character.gender }}</p>
-        <p><span class="text-lime-400">Origin:</span> {{ character.origin?.name }}</p>
-        <p><span class="text-lime-400">Location:</span> {{ character.location?.name }}</p>
+    <div class="flex flex-col flex-1">
+      <h1 class="text-4xl font-bold text-lime-300 text-center mb-6">
+        {{ character.name }}
+      </h1>
+      <div class="space-y-3 pl-12 pt-4">
+        <p><span class="text-lime-300 font-semibold text-2xl">Status:</span> 
+          <span v-if="character.status === 'Alive'" class="inline ml-3 text-2xl">💚</span>
+          <span v-else-if="character.status === 'Dead'" class="inline ml-3 text-2xl">☠️</span>
+          <span v-else class="inline ml-3 text-2xl">❔</span></p>
+
+        <p><span class="text-lime-300 font-semibold text-2xl">Gender:</span>
+          <span v-if="character.gender === 'Female'" class="inline ml-3 text-2xl">♀️</span>
+          <span v-else-if="character.gender === 'Male'" class="inline ml-3 text-2xl">♂️</span>
+          <span v-else-if="character.gender === 'Genderless'" class="inline ml-3 text-2xl">⚪</span>
+          <span v-else class="inline ml-3 text-2xl">❔</span></p>
+
+        <p><span class="text-lime-300 font-semibold text-2xl">Species:</span> 
+          <span v-if="character.species === 'Human'" class="inline ml-3 text-2xl">🧑</span>
+          <span v-else-if="character.species === 'Alien'" class="inline ml-3 text-2xl">👽</span>
+          <span v-else-if="character.species === 'Humanoid'" class="inline ml-3 text-2xl">🧑‍🚀</span>
+          <span v-else-if="character.species === 'Poopybutthole'" class="inline ml-3 text-2xl">💩</span>
+          <span v-else-if="character.species === 'Mythological Creature'" class="inline ml-3 text-2xl">🐉</span>
+          <span v-else-if="character.species === 'Robot'" class="inline ml-3 text-2xl">🤖</span>
+          <span v-else-if="character.species === 'Cronenberg'" class="inline ml-3 text-2xl">☣️</span>
+          <span v-else-if="character.species === 'Disease'" class="inline ml-3 text-2xl">🦠</span>
+          <span v-else-if="character.species === 'Animal'" class="inline ml-3 text-2xl">🐕</span>
+          <span v-else class="inline ml-3 text-2xl">❔</span>
+        </p>
+
+        <p><span class="text-lime-300 font-semibold mr-3 text-2xl">Type:</span> {{ character.type || 'N/A' }}</p>
+        <p><span class="text-lime-300 font-semibold mr-3 text-2xl">Origin:</span> {{ character.origin?.name }}</p>
+        <p><span class="text-lime-300 font-semibold mr-3 text-2xl">Location:</span> {{ character.location?.name }}</p>
+      </div>
       </div>
     </div>
 
