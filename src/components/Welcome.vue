@@ -1,5 +1,5 @@
 <template>
-	<div class="relative min-h-screen bg-center bg-cover bg-no-repeat bg-[url('/rick-and-morty-welcome.png')]">
+	<div class="relative min-h-screen bg-center bg-cover bg-no-repeat bg-[url('/rick-and-morty-welcome-mobile.png')] lg:bg-[url('/rick-and-morty-welcome.png')]">
 		<div class="flex justify-center pt-150">
 			<RouterLink to="/all-characters">
 				<button class="mt-20 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md 
