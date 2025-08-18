@@ -2,9 +2,9 @@
 	<div class="flex justify-end p-4">
 		<RouterLink to="/">
 			<button
-				class="group mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 
+				class="group mt-4 mr-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 
                             hover:shadow-md hover:shadow-lime-500 hover:bg-fuchsia-800 hover:text-lime-400 
-                            font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-200 cursor-pointer flex items-center gap-2">
+                            font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-200 cursor-pointer flex items-center">
 				<svg class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
 					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
 					<g transform="scale(2.81)">

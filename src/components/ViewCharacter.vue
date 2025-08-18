@@ -3,7 +3,7 @@
 		<div class="p-4">
 			<RouterLink :to="{ path: '/all-characters', query: { page: pageFromQuery } }">
 				<button
-					class="group mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
+					class="group mt-4 ml-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
 				hover:bg-fuchsia-800 hover:text-lime-400 font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-100 cursor-pointer">
 					<svg class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398">
@@ -22,8 +22,8 @@
 
 		<ExitButton />
 	</div>
-	<!-- <div class="min-h-screen px-6 py-16"></div> -->
-	<div class="p-4">
+	
+	<div class="min-h-screen p-4">
 		<div
 			class="bg-gradient-to-r from-fuchsia-800 from-10% to-violet-900 to-100% text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
 			<img :src="character.image" alt="Character Avatar"
@@ -32,7 +32,7 @@
 				<h1 class="text-3xl font-bold text-lime-300 text-left mb-4 xl:text-5xl">
 					{{ character.name }}
 				</h1>
-				<div class="space-y-2 p-4">
+				<div class="space-y-2">
 					<p>
 						<span class="text-lime-300 font-semibold text-xl lg:text-2xl 2xl:text-3xl">Status:</span>
 						<span v-if="character.status === 'Alive'"
