@@ -1,5 +1,5 @@
 <template>
-	<div class="min-h-screen px-4">
+	<div class="min-h-screen px-4 transform-gpu backface-hidden">
 		<ExitButton />
 		<div class="grid grid-cols-none justify-items-center-safe pt-8 gap-8
              md:grid-cols-2 lg:grid-cols-3 lg:px-12
