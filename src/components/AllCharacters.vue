@@ -3,7 +3,7 @@
 	<div
 		class="grid grid-cols-none justify-items-center-safe pt-8 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:px-12 xl:grid-cols-4 xl:px-32 2xl:grid-cols-5">
 		<div v-for="character in characters" :key="character.id"
-			class="bg-gradient-to-t from-violet-900 from-0% to-fuchsia-800 to-100% text-violet-200 py-6 rounded-xl 
+			class="bg-gradient-to-t from-violet-900 to-fuchsia-800 text-violet-200 py-6 rounded-xl 
             shadow-lg w-72 hover:ring hover:ring-lime-500 hover:shadow-lime-500 hover:scale-110 transition-transform duration-200">
 			<Card :character="character" :currentPage="page" />
 		</div>

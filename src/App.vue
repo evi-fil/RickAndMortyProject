@@ -1,5 +1,5 @@
 <template>
-	<div class="fixed inset-0 bg-center bg-cover bg-no-repeat lg:bg-fixed 
+	<div class="fixed inset-0 bg-center bg-cover bg-no-repeat md:bg-fixed 
            bg-[url('/rick-and-morty-portal.jpg')] bg-blend-multiply bg-gray-400">
 	</div>
 

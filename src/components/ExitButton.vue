@@ -1,6 +1,6 @@
 <template>
 	<div class="flex justify-end p-4">
-		<div class="md:mt-24">
+		<div class="md:mt-10">
 			<RouterLink to="/">
 				<button
 					class="group mt-4 mr-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 

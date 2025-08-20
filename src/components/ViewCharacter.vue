@@ -1,9 +1,9 @@
 <template>
 	<div class="flex justify-around content-center gap-4 pb-4">
-		<div class="p-4 md:mt-24">
+		<div class="p-4 md:mt-10">
 			<RouterLink :to="{ path: '/all-characters', query: { page: pageFromQuery } }">
 				<button
-					class="group mt-4 ml-4 mb-6 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
+					class="group mt-4 ml-4 mb-4 md:mb-6 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
 				hover:bg-fuchsia-800 hover:text-lime-400 font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-100 cursor-pointer">
 					<svg class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398">
