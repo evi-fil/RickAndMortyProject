@@ -22,10 +22,10 @@
 
 		<ExitButton />
 	</div>
-	
-	<div class="min-h-screen p-4">
+
+	<div class="relative min-h-screen p-4">
 		<div
-			class="bg-gradient-to-t from-violet-900 from-0% to-fuchsia-800 to-100% lg:bg-gradient-to-r text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
+			class="bg-gradient-to-t from-violet-900 to-fuchsia-800 md:bg-gradient-to-r text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
 			<img :src="character.image" alt="Character Avatar"
 				class="rounded-xl shadow-lg lg:w-90 lg:h-90 object-cover mx-auto md:mx-0" />
 			<div class="flex flex-col flex-1">
