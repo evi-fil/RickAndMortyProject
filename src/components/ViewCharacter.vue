@@ -1,9 +1,9 @@
 <template>
 	<div class="flex justify-around content-center gap-4 pb-4">
-		<div class="p-4">
+		<div class="p-4 md:mt-24">
 			<RouterLink :to="{ path: '/all-characters', query: { page: pageFromQuery } }">
 				<button
-					class="group mt-4 ml-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
+					class="group mt-4 ml-4 mb-6 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
 				hover:bg-fuchsia-800 hover:text-lime-400 font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-100 cursor-pointer">
 					<svg class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398">
@@ -25,7 +25,7 @@
 	
 	<div class="min-h-screen p-4">
 		<div
-			class="bg-gradient-to-r from-fuchsia-800 from-10% to-violet-900 to-100% text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
+			class="bg-gradient-to-t from-violet-900 from-0% to-fuchsia-800 to-100% lg:bg-gradient-to-r text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
 			<img :src="character.image" alt="Character Avatar"
 				class="rounded-xl shadow-lg lg:w-90 lg:h-90 object-cover mx-auto md:mx-0" />
 			<div class="flex flex-col flex-1">
