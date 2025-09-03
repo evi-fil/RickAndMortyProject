@@ -1,9 +1,8 @@
 <template>
-	<div class="flex justify-end p-4">
-		<div class="md:mt-10">
+	<div class="flex justify-center">
 			<RouterLink to="/">
 				<button
-					class="group mt-4 mr-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 
+					class="group mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 
                             hover:shadow-md hover:shadow-lime-500 hover:bg-fuchsia-800 hover:text-lime-400 
                             font-semibold text-3xl py-1 px-6 rounded-full transition-colors duration-200 cursor-pointer flex items-center">
 					<svg class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
@@ -26,7 +25,5 @@
 					</svg>
 				</button>
 			</RouterLink>
-		</div>
-
 	</div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full flex justify-around content-center pt-8 pb-4 md:pt-12 gap-4">
+	<div class="w-full flex justify-around content-center p-4 md:p-6 lg:p-8 gap-4">
 		<!-- Previous Character -->
 		<RouterLink v-if="currentId > 1"
 			:to="{ path: '/character/' + (currentId - 1), query: { page: pageFromQuery } }">
