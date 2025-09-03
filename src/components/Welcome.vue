@@ -7,7 +7,7 @@
 				<button class="mt-10 mb-20 bg-lime-400 text-fuchsia-800 
                  hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500
                  hover:bg-fuchsia-800 hover:text-lime-400
-                 font-semibold py-2 px-16 text-xl rounded-xl 
+                 font-semibold py-2 px-16 text-xl rounded-full 
                  transition-colors duration-100 cursor-pointer">
 					Enter
 				</button>

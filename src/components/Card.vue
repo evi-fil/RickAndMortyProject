@@ -36,7 +36,7 @@
 			<RouterLink :to="{ path: '/character/' + character.id, query: { page: currentPage } }">
 				<button class="mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md
                  hover:shadow-lime-500 hover:bg-fuchsia-800 hover:text-lime-400
-                 font-semibold py-2 px-4 rounded-xl transition-colors duration-100 cursor-pointer">
+                 font-semibold py-2 px-4 rounded-full transition-colors duration-100 cursor-pointer">
 					Show More
 				</button>
 			</RouterLink>

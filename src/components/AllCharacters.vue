@@ -6,6 +6,7 @@
 			<Card :character="character" :currentPage="page" />
 		</div>
 	</div>
+	<PageUp />
 	<div class="w-full">
 		<Pagination :pagination="pagination" @prevPage="changePage(false)" @nextPage="changePage(true)" />
 	</div>
@@ -18,6 +19,7 @@ import Pagination from './Pagination.vue';
 import { useRouter } from 'vue-router';
 import { usePageFromQuery } from '@/composables/pageFromQuery';
 import ExitButton from './ExitButton.vue';
+import PageUp from './PageUp.vue';
 
 const characters = ref([]);
 const pagination = ref();

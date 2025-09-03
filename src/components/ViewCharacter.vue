@@ -4,7 +4,7 @@
 			<RouterLink :to="{ path: '/all-characters', query: { page: pageFromQuery } }">
 				<button
 					class="group mt-4 ml-4 mb-4 md:mb-6 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md hover:shadow-lime-500 
-				hover:bg-fuchsia-800 hover:text-lime-400 font-semibold text-3xl py-1 px-6 rounded-xl transition-colors duration-100 cursor-pointer">
+				hover:bg-fuchsia-800 hover:text-lime-400 font-semibold text-3xl py-1 px-6 rounded-full transition-colors duration-100 cursor-pointer">
 					<svg class="w-8 h-8 fill-current transition-colors duration-200 group-hover:text-lime-400"
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398">
 						<path d="M487.083,225.514l-75.08-75.08V63.704c0-15.682-12.708-28.391-28.413-28.391c-15.669,
