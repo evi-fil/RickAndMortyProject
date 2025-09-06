@@ -1,5 +1,6 @@
 <template>
 	<ExitButton />
+	<SearchCharacter />
 	<div
 		class="grid grid-cols-none justify-items-center-safe pt-8 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:px-12 xl:grid-cols-4 xl:px-32 2xl:grid-cols-5">
 		<div v-for="character in characters" :key="character.id">
@@ -21,6 +22,7 @@ import { usePageFromQuery } from '@/composables/pageFromQuery';
 import ExitButton from './ExitButton.vue';
 import ScrollToTopButton from './ScrollToTopButton.vue';
 import HomeButton from './HomeButton.vue';
+import SearchCharacter from './SearchCharacter.vue';
 
 const characters = ref([]);
 const pagination = ref();
