@@ -1,10 +1,11 @@
 <template>
+	<!-- Top buttons -->
 	<div class="w-full flex justify-around content-center p-4 md:p-6 lg:p-8 gap-4">
 		<HomeButton />
-
 		<ExitButton />
 	</div>
-	<!-- Image -->
+
+	<!-- Character info -->
 	<div class="relative min-h-screen p-4">
 		<div
 			class="bg-gradient-to-t from-violet-900 to-fuchsia-800 md:bg-gradient-to-r text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
@@ -74,37 +75,47 @@
 			</div>
 		</div>
 
-		<ChangeCharacterButtons />
+		<!-- Navigation buttons -->
+		<ChangeCharacterButtons :characters="charactersList" :currentIndex="currentIndex" />
 	</div>
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import ExitButton from "./ExitButton.vue";
 import HomeButton from "./HomeButton.vue";
 import ChangeCharacterButtons from "./ChangeCharacterButtons.vue";
+import { useCharactersStore } from "@/stores/characters";
 
 const route = useRoute();
-
+const store = useCharactersStore();
 const character = ref({});
 
+// Use filtered or full list depending on search state
+const charactersList = computed(() =>
+	store.searchActive ? store.characters : store.fullCharacters
+);
+
+const currentIndex = computed(() =>
+	charactersList.value.findIndex(c => c.id === +route.params.id)
+);
+
 const fetchCharacter = async (id) => {
-	const response = await fetch(
-		"https://rickandmortyapi.com/api/character/" + id
-	);
+	const response = await fetch("https://rickandmortyapi.com/api/character/" + id);
 	const data = await response.json();
 	character.value = data;
 };
 
-onMounted(() => {
+// Prefetch all characters if not done yet
+onMounted(async () => {
+	if (!store.fullCharacters.length) {
+		await store.fetchAllCharacters();
+	}
 	fetchCharacter(route.params.id);
 });
 
-watch(
-	() => route.params.id,
-	(newId) => {
-		fetchCharacter(newId);
-	}
-);
+watch(() => route.params.id, (newId) => {
+	fetchCharacter(newId);
+});
 </script>
