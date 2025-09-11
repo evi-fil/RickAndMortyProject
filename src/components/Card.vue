@@ -34,7 +34,7 @@
 			</p>
 
 			<RouterLink :to="{ path: '/character/' + character.id, query: { page: currentPage } }">
-				<button class="mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md
+				<button @click="scrollToTop" class="mt-4 bg-lime-400 text-fuchsia-800 hover:ring hover:ring-lime-500 hover:shadow-md
                  hover:shadow-lime-500 hover:bg-fuchsia-800 hover:text-lime-400
                  font-semibold w-24 h-10 rounded-full transition-colors duration-100 cursor-pointer">
 					Show More
@@ -49,4 +49,8 @@ const props = defineProps({
 	character: Object,
 	currentPage: Number,
 });
+
+function scrollToTop() {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>

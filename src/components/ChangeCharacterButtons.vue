@@ -8,7 +8,7 @@
                cursor-pointer">&larr;</button>
 		</RouterLink>
 		<div v-else class="w-[72px]"></div>
-
+		
 		<!-- Next Character -->
 		<RouterLink v-if="currentId < maxCharacters"
 			:to="{ path: '/character/' + (currentId + 1), query: { page: pageFromQuery } }">
