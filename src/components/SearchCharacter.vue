@@ -4,7 +4,7 @@
 		<input v-model="searchName" @keyup.enter="handleSearch" type="text" placeholder="Search Character..."
 			aria-label="Search Character" class="w-52 md:w-80 lg:w-96 h-10 rounded-l-full border border-fuchsia-800
              focus:outline-none focus:ring-1 focus:ring-fuchsia-800 focus:border-lime-400
-             text-center  text-fuchsia-800 placeholder:text-fuchsia-800
+             text-center  text-lime-400 placeholder:text-lime-400 md:text-fuchsia-800 md:placeholder:text-fuchsia-800
              font-base text-lg transition-colors duration-100 bg-white/30 backdrop-blur-sm 
 			 hover:bg-white/50 hover:shadow-md hover:shadow-lime-500" />
 
