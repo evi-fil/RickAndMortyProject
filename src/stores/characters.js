@@ -2,8 +2,8 @@ import { defineStore } from 'pinia';
 
 export const useCharactersStore = defineStore('characters', {
   state: () => ({
-    characters: [],        // current page or filtered characters
-    fullCharacters: [],    // all characters (prefetched)
+    characters: [],
+    fullCharacters: [],
     pagination: null,
     page: 1,
     searchActive: false,
@@ -27,7 +27,7 @@ export const useCharactersStore = defineStore('characters', {
 
     // Fetch all characters at once
     async fetchAllCharacters() {
-      let allChars = [];
+      let allCharacters = [];
       let page = 1;
       let totalPages = 1;
 
@@ -36,12 +36,12 @@ export const useCharactersStore = defineStore('characters', {
         if (!response.ok) break;
 
         const data = await response.json();
-        allChars = allChars.concat(data.results);
+        allCharacters = allCharacters.concat(data.results);
         totalPages = data.info.pages;
         page++;
       } while (page <= totalPages);
 
-      this.fullCharacters = allChars;
+      this.fullCharacters = allCharacters;
     },
 
     // Fetch characters by name (search)
@@ -50,20 +50,21 @@ export const useCharactersStore = defineStore('characters', {
       this.lastSearchTerm = name;
       this.searchActive = true;
 
-      const response = await fetch(
-        'https://rickandmortyapi.com/api/character/?name=' +
-          encodeURIComponent(name) +
-          '&page=' +
-          page
-      );
-      if (!response.ok) {
-        this.characters = [];
-        this.pagination = null;
-        return;
-      }
-      const data = await response.json();
-      this.characters = data.results || [];
-      this.pagination = data.info;
+        const response = await fetch(
+          'https://rickandmortyapi.com/api/character/?name=' + encodeURIComponent(name) + '&page=' + page);
+
+        if (!response.ok) {
+          if (response.status === 404) {
+            this.errorMessage = "Character not found";
+          }
+          this.characters = [];
+          this.pagination = null;
+          return;
+        }
+
+        const data = await response.json();
+        this.characters = data.results || [];
+        this.pagination = data.info;
     },
 
     clearSearch() {

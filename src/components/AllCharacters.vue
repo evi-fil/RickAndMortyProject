@@ -1,7 +1,19 @@
 <template>
-	<ExitButton />
+	<div class="w-full">
+		<div class="w-full flex justify-center content-center pb-6 gap-18 md:gap-56 lg:gap-72 xl:gap-96">
+			<HomeButton />
+			<ExitButton />
+		</div>
+	</div>
 	<!-- Search input -->
 	<SearchCharacter @handleSearch="onSearch" />
+	<!--Character not found-->
+	<div v-if="!store.characters.length">
+		<p class="flex justify-center content-center p-4 mt-12 w-56 md:w-72 lg:w-96 mx-auto 
+		 text-lime-300 text-xl text-bold rounded-full shadow-lg 
+		 bg-gradient-to-r from-violet-900 to-fuchsia-800">
+			Character not found!</p>
+	</div>
 	<!-- Character grid -->
 	<div class="grid grid-cols-none justify-items-center-safe pt-8 gap-8 
            md:grid-cols-2 lg:grid-cols-3 lg:px-12 
@@ -27,6 +39,7 @@ import ExitButton from './ExitButton.vue';
 import ScrollToTopButton from './ScrollToTopButton.vue';
 import SearchCharacter from './SearchCharacter.vue';
 import { useCharactersStore } from '@/stores/characters';
+import HomeButton from './HomeButton.vue';
 
 const store = useCharactersStore();
 const router = useRouter();
@@ -67,7 +80,7 @@ function goToPage(page) {
 		store.fetchCharacters(page);
 		router.push({ path: '/all-characters', query: { page } });
 	}
-	//window.scrollTo({ top: 0, behavior: 'smooth' });
+	window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Initial fetch based on query
@@ -80,7 +93,6 @@ onMounted(() => {
 	}
 });
 
-// React to URL changes (e.g. back/forward browser buttons)
 watch(
 	() => route.query,
 	(query) => {

@@ -1,84 +1,88 @@
 <template>
-	<!-- Top buttons -->
-	<div class="w-full flex justify-around content-center p-4 md:p-6 lg:p-8 gap-4">
-		<HomeButton />
-		<ExitButton />
-	</div>
+  <!-- Top buttons -->
+  <div class="w-full flex justify-around content-center p-4 md:p-6 lg:p-8 gap-4">
+    <HomeButton />
+    <ExitButton />
+  </div>
 
-	<!-- Character info -->
-	<div class="relative min-h-screen p-4">
-		<div
-			class="bg-gradient-to-t from-violet-900 to-fuchsia-800 md:bg-gradient-to-r text-violet-200 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
-			<img :src="character.image" alt="Character Avatar"
-				class="rounded-xl shadow-lg lg:w-90 lg:h-90 object-cover mx-auto md:mx-0" />
-			<div class="flex flex-col flex-1">
-				<h1 class="text-3xl font-bold text-lime-300 text-left mb-4 xl:text-5xl">
-					{{ character.name }}
-				</h1>
-				<div class="space-y-2">
-					<p>
-						<span class="text-lime-300 font-semibold text-xl lg:text-2xl 2xl:text-3xl">Status:</span>
-						<span v-if="character.status === 'Alive'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">💚</span>
-						<span v-else-if="character.status === 'Dead'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">☠️</span>
-						<span v-else class="inline ml-3 text-xl lg:text-2xl xl:text-3xl">❔</span>
-					</p>
+  <!-- Character info -->
+  <div class="relative min-h-screen p-4 text-center">
+    <div
+      class="bg-gradient-to-t from-violet-900 to-fuchsia-800 md:bg-gradient-to-r 
+             text-violet-200 overflow-hidden rounded-full shadow-2xl p-8 flex flex-col md:flex-row 
+             gap-4 md:gap-6 max-w-full md:max-w-5xl mx-auto flex-wrap">
 
-					<p>
-						<span class="text-lime-300 font-semibold text-xl lg:text-2xl 2xl:text-3xl">Gender:</span>
-						<span v-if="character.gender === 'Female'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">♀️</span>
-						<span v-else-if="character.gender === 'Male'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">♂️</span>
-						<span v-else-if="character.gender === 'Genderless'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">⚪</span>
-						<span v-else class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">❔</span>
-					</p>
+      <!-- Character image -->
+      <img 
+        :src="character.image" 
+        alt="Character Avatar"
+        class="rounded-full shadow-lg sw-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover mx-auto md:mx-0 flex-shrink-0" 
+      />
 
-					<p>
-						<span class="text-lime-300 font-semibold text-xl lg:text-2xl 2xl:text-3xl">Species:</span>
-						<span v-if="character.species === 'Human'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">🧑</span>
-						<span v-else-if="character.species === 'Alien'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">👽</span>
-						<span v-else-if="character.species === 'Humanoid'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">🧑‍🚀</span>
-						<span v-else-if="character.species === 'Poopybutthole'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">💩</span>
-						<span v-else-if="character.species === 'Mythological Creature'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">🐉</span>
-						<span v-else-if="character.species === 'Robot'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">🤖</span>
-						<span v-else-if="character.species === 'Cronenberg'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">☣️</span>
-						<span v-else-if="character.species === 'Disease'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">🦠</span>
-						<span v-else-if="character.species === 'Animal'"
-							class="inline ml-3 text-xl lg:text-2xl 2xl:text-3xl">🐕</span>
-						<span v-else class="inline ml-3 text-lg lg:text-xl 2xl:text-3xl">❔</span>
-					</p>
+      <!-- Character details -->
+      <div class="flex flex-col flex-1 min-w-0 px-4 p-2">
+        <h1 class="text-2xl md:text-3xl xl:text-5xl font-bold text-lime-300 text-center md:text-left mb-4 break-words">
+          {{ character.name }}
+        </h1>
+        <div class="space-y-2 md:space-y-3 text-center md:text-left break-words">
+          <!-- Status -->
+          <p>
+            <span class="text-lime-300 font-semibold text-2xl md:text-2xl xl:text-2xl">Status:</span>
+            <span v-if="character.status === 'Alive'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">💚</span>
+            <span v-else-if="character.status === 'Dead'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">☠️</span>
+            <span v-else class="inline mx-2 text-2xl md:text-2xl xl:text-2xl">❔</span>
+          </p>
 
-					<p>
-						<span class="text-lime-300 font-semibold mr-3 text-xl lg:text-2xl 2xl:text-3xl">Type:</span>
-						<span class="inline ml-3 text-lg lg:text-xl 2xl:text-2xl">{{ character.type || "N/A" }}</span>
-					</p>
-					<p>
-						<span class="text-lime-300 font-semibold mr-3 text-xl lg:text-2xl 2xl:text-3xl">Origin:</span>
-						<span class="inline ml-3 text-lg lg:text-xl 2xl:text-2xl">{{ character.origin?.name }}</span>
-					</p>
-					<p>
-						<span class="text-lime-300 font-semibold mr-3 text-xl lg:text-2xl 2xl:text-3xl">Location:</span>
-						<span class="inline ml-3 text-lg lg:text-xl 2xl:text-2xl">{{ character.location?.name }}</span>
-					</p>
-				</div>
-			</div>
-		</div>
+          <!-- Gender -->
+          <p>
+            <span class="text-lime-300 font-semibold text-2xl md:text-2xl xl:text-2xl">Gender:</span>
+            <span v-if="character.gender === 'Female'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">♀️</span>
+            <span v-else-if="character.gender === 'Male'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">♂️</span>
+            <span v-else-if="character.gender === 'Genderless'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">⚪</span>
+            <span v-else class="inline mx-2 text-2xl md:text-2xl xl:text-2xl">❔</span>
+          </p>
 
-		<!-- Navigation buttons -->
-		<ChangeCharacterButtons :characters="charactersList" :currentIndex="currentIndex" />
-	</div>
+          <!-- Species -->
+          <p>
+            <span class="text-lime-300 font-semibold text-2xl md:text-2xl xl:text-2xl">Species:</span>
+            <span v-if="character.species === 'Human'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">🧑</span>
+            <span v-else-if="character.species === 'Alien'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">👽</span>
+            <span v-else-if="character.species === 'Humanoid'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">🧑‍🚀</span>
+            <span v-else-if="character.species === 'Poopybutthole'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">💩</span>
+            <span v-else-if="character.species === 'Mythological Creature'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">🐉</span>
+            <span v-else-if="character.species === 'Robot'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">🤖</span>
+            <span v-else-if="character.species === 'Cronenberg'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">☣️</span>
+            <span v-else-if="character.species === 'Disease'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">🦠</span>
+            <span v-else-if="character.species === 'Animal'" class="inline mx-2 text-2xl  md:text-2xl xl:text-2xl">🐕</span>
+            <span v-else class="inline mx-2 text-2xl md:text-2xl xl:text-2xl">❔</span>
+          </p>
+
+          <!-- Type -->
+          <p>
+            <span class="text-lime-300 font-semibold text-2xl md:text-2xl xl:text-2xl">Type:</span>
+            <span class="inline mx-2 text-2xl md:text-2xl xl:text-2xl break-words">{{ character.type || "N/A" }}</span>
+          </p>
+
+          <!-- Origin -->
+          <p>
+            <span class="text-lime-300 font-semibold text-2xl md:text-2xl xl:text-2xl">Origin:</span>
+            <span class="inline mx-2 text-2xl md:text-2xl xl:text-2xl break-words">{{ character.origin?.name }}</span>
+          </p>
+
+          <!-- Location -->
+          <p>
+            <span class="text-lime-300 font-semibold text-2xl md:text-2xl xl:text-2xl">Location:</span>
+            <span class="inline mx-2 text-2xl md:text-2xl xl:text-2xl break-words">{{ character.location?.name }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <ChangeCharacterButtons :characters="charactersList" :currentIndex="currentIndex" />
+  </div>
 </template>
+
 
 <script setup>
 import { ref, watch, onMounted, computed } from "vue";
@@ -92,7 +96,7 @@ const route = useRoute();
 const store = useCharactersStore();
 const character = ref({});
 
-// Use filtered or full list depending on search state
+// Filtered or full list 
 const charactersList = computed(() =>
 	store.searchActive ? store.characters : store.fullCharacters
 );
@@ -107,7 +111,7 @@ const fetchCharacter = async (id) => {
 	character.value = data;
 };
 
-// Prefetch all characters if not done yet
+// Prefetch all characters 
 onMounted(async () => {
 	if (!store.fullCharacters.length) {
 		await store.fetchAllCharacters();
