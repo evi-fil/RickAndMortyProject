@@ -1,5 +1,5 @@
 <template>
-	<div class="relative min-h-screen p-4 md:pt-24 lg:pt-38">
+	<div class="relative min-h-screen p-4 md:pt-24 lg:pt-32">
 		<!-- Top buttons -->
 		<div class="w-full flex justify-around content-center p-4 md:p-6 lg:p-8 gap-4">
 			<HomeButton />
