@@ -40,6 +40,7 @@ import ScrollToTopButton from './ScrollToTopButton.vue';
 import SearchCharacter from './SearchCharacter.vue';
 import { useCharactersStore } from '@/stores/characters';
 import HomeButton from './HomeButton.vue';
+import { useKeyboardPagination } from '@/composables/useKeyboardPagination';
 
 const store = useCharactersStore();
 const router = useRouter();
@@ -103,4 +104,6 @@ watch(
 		}
 	}
 );
+
+useKeyboardPagination();
 </script>

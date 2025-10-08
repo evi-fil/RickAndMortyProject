@@ -28,6 +28,7 @@
 import { computed } from 'vue';
 import { usePageFromQuery } from '@/composables/pageFromQuery';
 import { RouterLink } from 'vue-router';
+import { useKeyboardNavigation } from '@/composables/useKeyboardNavigation';
 
 const props = defineProps({
 	characters: Array,
@@ -38,4 +39,6 @@ const pageFromQuery = usePageFromQuery();
 
 const prevCharacter = computed(() => props.characters[props.currentIndex - 1] || null);
 const nextCharacter = computed(() => props.characters[props.currentIndex + 1] || null);
+
+useKeyboardNavigation(prevCharacter, nextCharacter);
 </script>

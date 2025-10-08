@@ -9,28 +9,28 @@
 		</div>
 
 		<div class="text-center p-4">
-			<h2 class="text-lime-300 font-bold text-lg"> {{ character.name }}</h2>
-
+			<h2 class="text-lime-300 font-bold text-lg truncate"> {{ character.name }}</h2>
+			<!-- Gender -->
 			<p>
 				<span class="text-lime-200">Gender:</span>
-				<span v-if="character.gender === 'Female'" class="inline ml-2 text-lg">♀️</span>
-				<span v-else-if="character.gender === 'Male'" class="inline ml-2 text-lg">♂️</span>
-				<span v-else-if="character.gender === 'Genderless'" class="inline ml-2 text-lg">⚪</span>
-				<span v-else class="inline ml-2 text-lg">❔</span>
+				<span v-if="character.gender === 'Female'" class="inline ml-2 text-md">♀️</span>
+				<span v-else-if="character.gender === 'Male'" class="inline ml-2 text-md">♂️</span>
+				<span v-else-if="character.gender === 'Genderless'" class="inline ml-2 text-md">⚪</span>
+				<span v-else class="inline ml-2 text-md">❔</span>
 			</p>
-
+			<!-- Species -->
 			<p>
 				<span class="text-lime-200">Species:</span>
-				<span v-if="character.species === 'Human'" class="inline ml-2 text-lg">🧑</span>
-				<span v-else-if="character.species === 'Alien'" class="inline ml-2 text-lg">👽</span>
-				<span v-else-if="character.species === 'Humanoid'" class="inline ml-2 text-lg">🧑‍🚀</span>
-				<span v-else-if="character.species === 'Poopybutthole'" class="inline ml-2 text-lg">💩</span>
-				<span v-else-if="character.species === 'Mythological Creature'" class="inline ml-2 text-lg">🐉</span>
-				<span v-else-if="character.species === 'Robot'" class="inline ml-2 text-lg">🤖</span>
-				<span v-else-if="character.species === 'Cronenberg'" class="inline ml-2 text-lg">☣️</span>
-				<span v-else-if="character.species === 'Disease'" class="inline ml-2 text-lg">🦠</span>
-				<span v-else-if="character.species === 'Animal'" class="inline ml-2 text-lg">🐕</span>
-				<span v-else class="inline ml-2 text-lg">❔</span>
+				<span v-if="character.species === 'Human'" class="inline ml-2 text-md">🧑</span>
+				<span v-else-if="character.species === 'Alien'" class="inline ml-2 text-md">👽</span>
+				<span v-else-if="character.species === 'Humanoid'" class="inline ml-2 text-md">🧑‍🚀</span>
+				<span v-else-if="character.species === 'Poopybutthole'" class="inline ml-2 text-md">💩</span>
+				<span v-else-if="character.species === 'Mythological Creature'" class="inline ml-2 text-md">🐉</span>
+				<span v-else-if="character.species === 'Robot'" class="inline ml-2 text-md">🤖</span>
+				<span v-else-if="character.species === 'Cronenberg'" class="inline ml-2 text-md">☣️</span>
+				<span v-else-if="character.species === 'Disease'" class="inline ml-2 text-md">🦠</span>
+				<span v-else-if="character.species === 'Animal'" class="inline ml-2 text-md">🐕</span>
+				<span v-else class="inline ml-2 text-md">❔</span>
 			</p>
 
 			<RouterLink :to="{ path: '/character/' + character.id, query: { page: currentPage } }">

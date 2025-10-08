@@ -8,6 +8,7 @@ export const useCharactersStore = defineStore('characters', {
     page: 1,
     searchActive: false,
     lastSearchTerm: '',
+    currentCharacterIndex: 0,
   }),
 
   actions: {
@@ -71,6 +72,28 @@ export const useCharactersStore = defineStore('characters', {
       this.searchActive = false;
       this.lastSearchTerm = '';
       this.fetchCharacters(1);
+    },
+
+    async nextPage() {
+      if(this.pagination?.next) {
+        const nextPage = this.page + 1;
+        if(this.searchActive) {
+          await this.fetchCharactersByName(this.lastSearchTerm, nextPage);
+        } else {
+          await this.fetchCharacters(nextPage);
+        }
+      }
+    },
+
+    async prevPage() {
+      if(this.pagination?.prev && this.page > 1) {
+        const prevPage = this.page - 1;
+        if(this.searchActive) {
+          await this.fetchCharactersByName(this.lastSearchTerm, prevPage);
+        } else {
+          await this.fetchCharacters(prevPage);
+        }
+      }
     },
   },
 });
