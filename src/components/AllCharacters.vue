@@ -6,7 +6,7 @@
 		</div>
 	</div>
 	<!-- Search input -->
-	<SearchCharacter @handleSearch="onSearch" />
+	<SearchCharacter :searchTerm="store.lastSearchTerm" @handleSearch="onSearch" />
 	<!--Character not found-->
 	<div v-if="!store.characters.length">
 		<p class="flex justify-center content-center p-4 mt-12 w-56 md:w-72 lg:w-96 mx-auto 

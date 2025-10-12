@@ -47,6 +47,14 @@ export const useCharactersStore = defineStore('characters', {
 
     // Fetch characters by name (search)
     async fetchCharactersByName(name, page = 1) {
+
+      const trimmed = name.trim();
+
+      if(!trimmed){
+        this.clearSearch();
+        return;
+      }
+
       this.page = page;
       this.lastSearchTerm = name;
       this.searchActive = true;
@@ -60,6 +68,8 @@ export const useCharactersStore = defineStore('characters', {
           }
           this.characters = [];
           this.pagination = null;
+          this.searchActive = false;
+          this.lastSearchTerm = '';
           return;
         }
 

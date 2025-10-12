@@ -22,12 +22,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
-const searchName = ref('');
+const props = defineProps({
+	searchTerm: {
+		type: String,
+		default:'',
+	}
+});
+
+const searchName = ref(props.searchTerm);
 const emit = defineEmits(['handleSearch']);
 
 function handleSearch() {
 	emit('handleSearch', searchName.value.trim());
 }
+
+watch(
+	()=> props.searchTerm,
+	(newValue) => {
+		searchName.value = newValue || '';
+	}
+);
 </script>
