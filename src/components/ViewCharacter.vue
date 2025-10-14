@@ -26,45 +26,45 @@
 						<!-- Status -->
 						<p>
 							<span class="text-lime-300  text-md md:text-xl xl:text-2xl">Status:</span>
-							<span v-if="character.status === 'Alive'"
+							<span v-if="character.status === 'Alive'" v-tooltip.right="'Alive'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">💚</span>
-							<span v-else-if="character.status === 'Dead'"
+							<span v-else-if="character.status === 'Dead'" v-tooltip.right="'Dead'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">☠️</span>
-							<span v-else class="inline mx-2 text-md md:text-xl xl:text-2xl">❔</span>
+							<span v-else v-tooltip.right="'Unknown'" class="inline mx-2 text-md md:text-xl xl:text-2xl">❔</span>
 						</p>
 						<!-- Gender -->
 						<p>
 							<span class="text-lime-300  text-md md:text-xl xl:text-2xl">Gender:</span>
-							<span v-if="character.gender === 'Female'"
+							<span v-if="character.gender === 'Female'" v-tooltip.right="'Female'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">♀️</span>
-							<span v-else-if="character.gender === 'Male'"
+							<span v-else-if="character.gender === 'Male'" v-tooltip.right="'Male'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">♂️</span>
-							<span v-else-if="character.gender === 'Genderless'"
+							<span v-else-if="character.gender === 'Genderless'" v-tooltip.right="'Genderless'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">⚪</span>
-							<span v-else class="inline mx-2 text-md md:text-xl xl:text-2xl">❔</span>
+							<span v-else v-tooltip.right="'Unknown'" class="inline mx-2 text-md md:text-xl xl:text-2xl">❔</span>
 						</p>
 						<!-- Species -->
 						<p>
 							<span class="text-lime-300  text-md md:text-xl xl:text-2xl">Species:</span>
-							<span v-if="character.species === 'Human'"
+							<span v-if="character.species === 'Human'" v-tooltip.right="'Human'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">🧑</span>
-							<span v-else-if="character.species === 'Alien'"
+							<span v-else-if="character.species === 'Alien'" v-tooltip.right="'Alien'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">👽</span>
-							<span v-else-if="character.species === 'Humanoid'"
+							<span v-else-if="character.species === 'Humanoid'" v-tooltip.right="'Humanoid'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">🧑‍🚀</span>
-							<span v-else-if="character.species === 'Poopybutthole'"
+							<span v-else-if="character.species === 'Poopybutthole'" v-tooltip.right="'Poopybutthole'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">💩</span>
-							<span v-else-if="character.species === 'Mythological Creature'"
+							<span v-else-if="character.species === 'Mythological Creature'" v-tooltip.right="'Mythological Creature'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">🐉</span>
-							<span v-else-if="character.species === 'Robot'"
+							<span v-else-if="character.species === 'Robot'" v-tooltip.right="'Robot'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">🤖</span>
-							<span v-else-if="character.species === 'Cronenberg'"
+							<span v-else-if="character.species === 'Cronenberg'" v-tooltip.right="'Cronenberg'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">☣️</span>
-							<span v-else-if="character.species === 'Disease'"
+							<span v-else-if="character.species === 'Disease'" v-tooltip.right="'Disease'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">🦠</span>
-							<span v-else-if="character.species === 'Animal'"
+							<span v-else-if="character.species === 'Animal'" v-tooltip.right="'Animal'"
 								class="inline mx-2 text-md md:text-xl xl:text-2xl">🐕</span>
-							<span v-else class="inline mx-2 text-md md:text-xl xl:text-2xl">❔</span>
+							<span v-else v-tooltip.right="'Unknown'" class="inline mx-2 text-md md:text-xl xl:text-2xl">❔</span>
 						</p>
 						<!-- Type -->
 						<p>
